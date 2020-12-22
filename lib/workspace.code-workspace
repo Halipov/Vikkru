@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Android Device Files",
+			"uri": "adbfs:/"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
