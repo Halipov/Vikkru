@@ -1,16 +1,21 @@
-# vikkru
+# Мобильное приложение Vikkru
 
-A new Flutter application.
+Приложение создано для людей участвующих в раскопках, приложение позволяет безопасно заполнить анкету, с добавлением геолокации и фотографиями, и сохранить в формате pdf.
 
-## Getting Started
+Вначале работы с приложением необходима регистрация(данные добавляются в зашифрованную бд), далее достаточно один раз залогиниться, больше аутентификация не потребуется.
 
-This project is a starting point for a Flutter application.
+Для использования обфускации нужно собрать приложение при помощи следующей команды:
 
-A few resources to get you started if this is your first Flutter project:
+    flutter build apk --obfuscate --split-debug-info=/vikkru
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Так же в приложении присутствует шифрование SQLCipher. 
+Для подключения к бд нужно добавить пароль в следующую строчку:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    var db = await openDatabase(path, password: "ParolCydaNapishi!", readOnly: false);
+Защита биометрической аутентификацией при помощи пакета [local_auth](https://pub.dev/packages/local_auth)
+Для защиты от скриншотов нужно добавить следующую строчка(*После того как сделали скриншоты*):
+```
+  getWindow().addFlags(LayoutParams.FLAG_SECURE);
+```
+Скриншоты приложения можно посмотреть в папке ScreenShots
+
